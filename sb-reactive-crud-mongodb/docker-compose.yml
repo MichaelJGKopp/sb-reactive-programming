@@ -1,0 +1,11 @@
+services:
+  mongoDB:
+    image: mongo:latest
+    container_name: mongoDB
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=productdb
+    restart: unless-stopped
