@@ -3,6 +3,7 @@ package io.michaeljgkopp.github.sbwebfluxdemo.controller;
 import io.michaeljgkopp.github.sbwebfluxdemo.dto.Customer;
 import io.michaeljgkopp.github.sbwebfluxdemo.service.CustomerService;
 import java.util.List;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,4 +23,9 @@ public class CustomerController {
     return customerService.loadAllCustomers();
   }
 
+  @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+  public Flux<Customer> getAllCustomersStream() {
+    return customerService.loadAllCustomersStream();
+        
+  }
 }
