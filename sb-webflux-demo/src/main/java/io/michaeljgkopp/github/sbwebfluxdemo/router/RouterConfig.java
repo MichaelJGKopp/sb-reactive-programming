@@ -23,6 +23,8 @@ public class RouterConfig {
     return RouterFunctions.route()
         .GET("/router/customers", customerHandler::loadCustomers)
         .GET("/router/customers/stream", customerStreamHandler::getCustomers)
+        .GET("/router/customers/{input}", customerHandler::findCustomer)
+        .POST("/router/customers", customerHandler::saveCustomer)
         // can add POST, PUT, DELETE, etc. here
         .build();
   }
