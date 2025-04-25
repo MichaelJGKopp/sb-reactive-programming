@@ -17,7 +17,7 @@ public class ProductService {
     this.productRepository = productRepository;
   }
 
-  public Flux<ProductDto> getAllProduct() {
+  public Flux<ProductDto> getAllProducts() {
     return productRepository.findAll()
         .map(AppUtils::toProductDto);
   }

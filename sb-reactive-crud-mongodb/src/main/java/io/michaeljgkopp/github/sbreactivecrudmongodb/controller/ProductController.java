@@ -30,7 +30,7 @@ public class ProductController {
   @ResponseStatus(HttpStatus.OK)
   @GetMapping(value = "", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public Flux<ProductDto> getAllProducts() {
-    return productService.getAllProduct();
+    return productService.getAllProducts();
   }
 
   @ResponseStatus(HttpStatus.OK)
